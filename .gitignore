@@ -1,4 +1,7 @@
-/blog-example/node_modules
-/blog-example/bundle.js
+/BlogExample/node_modules
+/BlogExample/bundle.js
 
 /ReduxSimpleStarter/node_modules
+
+/MyFirstApp/node_modules
+/MyFirstApp/bundle.js
