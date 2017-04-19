@@ -1,7 +1,11 @@
+/AuthExample/server/node_modules
+/AuthExample/server/config.js
+/AuthExample/client/node_modules
+
 /BlogExample/node_modules
 /BlogExample/bundle.js
 
-/ReduxSimpleStarter/node_modules
-
 /MyFirstApp/node_modules
 /MyFirstApp/bundle.js
+
+/ReduxSimpleStarter/node_modules
