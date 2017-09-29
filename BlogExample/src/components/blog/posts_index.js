@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import Quotes from './quotes';
-import Modal from './modal';
-import { toggleModal } from '../actions/index';
+import Quotes from './modal/quotes';
+import Modal from './modal/modal';
+import { toggleModal } from '../../actions/index';
 
 class PostsIndex extends Component {
   renderPosts() {

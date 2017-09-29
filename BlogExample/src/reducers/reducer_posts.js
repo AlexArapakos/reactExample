@@ -1,4 +1,4 @@
-import { FETCH_POST, FETCH_POSTS } from '../actions/index';
+import { FETCH_POST, FETCH_POSTS } from '../actions/types';
 
 const INITIAL_STATE = {
 	all: [],

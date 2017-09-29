@@ -1,0 +1,35 @@
+.groupTable .col-sm-1, .groupTable .col-sm-2, .groupTable .col-sm-3, .groupTable .col-sm-4, 
+.groupTable .col-sm-5, .groupTable .col-sm-6, .groupTable .col-sm-7, .groupTable .col-sm-8, 
+.groupTable .col-sm-9, .groupTable .col-sm-10, .groupTable .col-sm-11, .groupTable .col-sm-12{
+	/*font-size: 15px;*/
+	float: unset;
+}
+
+.groupTable th, .groupTable td {
+	text-align: center;
+	border: 1px solid white;
+}
+
+.groupTable td:first-child {
+	background: lightblue;
+}
+
+.groupTable td:last-child {
+	background: lightpink;
+}
+
+.groupTable td.loading {
+	background: lightyellow;
+}
+
+.groupTable th{
+	background: lightgrey;
+}
+
+.groupTable td{
+	background: lightyellow;
+}
+
+.btn {
+	margin: 4px 0;
+}

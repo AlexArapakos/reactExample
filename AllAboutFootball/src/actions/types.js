@@ -1,0 +1,10 @@
+// Competition
+export const FETCH_MATCHES = 'FETCH_MATCHES';
+
+// Champions League
+export const FETCH_CL_GROUP_TABLE = 'FETCH_CL_GROUP_TABLE';
+export const FETCH_CL_MATCHES_RESULTS = 'FETCH_CL_MATCHES_RESULTS';
+
+// Europa League
+export const FETCH_EL_GROUP_TABLE = 'FETCH_EL_GROUP_TABLE';
+export const FETCH_EL_MATCHES_RESULTS = 'FETCH_EL_MATCHES_RESULTS';

@@ -1,3 +1,8 @@
+/.idea
+
+/AllAboutFootball/node_modules
+/AllAboutFootball/bundle.js
+
 /AuthExample/server/node_modules
 /AuthExample/server/config.js
 /AuthExample/client/node_modules

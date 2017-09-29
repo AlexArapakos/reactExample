@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form';
 //import { elementType } from 'react-prop-types';
 import _ from 'lodash';
 
-import { createPost } from '../actions/index';
+import { createPost } from '../../actions/index';
 
 const FIELDS = {
 	title: {

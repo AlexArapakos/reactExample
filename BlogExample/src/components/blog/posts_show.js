@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { fetchPost, deletePost } from '../actions/index';
+import { fetchPost, deletePost } from '../../actions/index';
 
 class ShowPosts extends Component {
 	componentWillMount() {

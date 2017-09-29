@@ -1,11 +1,24 @@
 import axios from 'axios';
 
-export const FETCH_POSTS = 'FETCH_POSTS';
-export const FETCH_POST = 'FETCH_POST';
-export const CREATE_POST = 'CREATE_POST';
-export const DELETE_POST = 'DELETE_POST';
-export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+import {
+	CHANGE_AUTH,
+	FETCH_POSTS,
+	FETCH_POST,
+	CREATE_POST,
+	DELETE_POST,
+	TOGGLE_MODAL,
+	FETCH_USERS
+} from './types';
 
+// authentication
+export function authenticate(isLoggedIn) {
+	return {
+		type: CHANGE_AUTH,
+		payload: isLoggedIn
+	};
+}
+
+// blog
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 const API_KEY = '?key=hsdkjgvjrehf';
 
@@ -41,9 +54,21 @@ export function deletePost(id) {
 	};
 }
 
+// modal
 export function toggleModal(state) {
 	return {
 		type: TOGGLE_MODAL,
 		payload: state
+	};
+}
+
+// middleware
+const ROOT_Middleware_URL = 'http://jsonplaceholder.typicode.com';
+
+export function fetchUsers() {
+	const request = axios.get(`${ROOT_Middleware_URL}/users`);
+	return {
+		type: FETCH_USERS,
+		payload: request
 	};
 }

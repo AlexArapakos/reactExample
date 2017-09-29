@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect, Provider } from 'react-redux';
 
-import store from '../store';
-import { toggleModal } from '../actions/index';
+import store from '../../../store';
+import { toggleModal } from '../../../actions/index';
 
 class Modal extends Component {
 	constructor(props) {
