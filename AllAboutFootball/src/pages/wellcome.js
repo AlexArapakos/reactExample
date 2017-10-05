@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-class Wellcome extends Component {
+import Config from '../Config';
+
+const configInstance = new Config();
+
+export default class Wellcome extends Component {
 	renderButtons() {
-		return  this.props.competitionCodes.map((code, i) => {
+		return  configInstance.competitionCodes.map((code, i) => {
 			return (
 				<div key={"competition_"+code}>
 					<Link to={"/"+code+"/main"} className="btn btn-primary">
-		      			{this.props.competitionNames[i]}
+		      			{configInstance.competitionNames[i]}
 		      		</Link>
 		      		<br />
 				</div>
@@ -24,14 +27,3 @@ class Wellcome extends Component {
 		);
 	}
 }
-
-function mapStateToProps(state) {
-	// return props inside Wellcome
-	return {
-		competitionNames: state.competition.competitionNames,
-		competitionCodes: state.competition.competitionCodes
-	};
-}
-
-// transform a component to a container, adding new props to Wellcome
-export default connect(mapStateToProps)(Wellcome);

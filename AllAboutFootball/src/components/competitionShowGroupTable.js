@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchCompetitionGroupTable } from '../actions/index';
+import { fetchGroupTable } from '../actions/index';
 
 // container which is being update by an Action
 class CompetitionShowGroupTable extends Component {
 	componentWillMount() {
-		this.props.fetchCompetitionGroupTable(this.props.competition, this.props.id);
+		this.props.fetchGroupTable(this.props.competition, this.props.group);
 	}
 	renderList() {
-		return this.props.teams.records.map((team) => {
-			return (
-				<tr key={team.team}>
-					<td className="col-sm-5">{team.team}</td>
-					<td className="col-sm-1">{team.played}</td>
-					<td className="col-sm-1">{team.win}</td>
-					<td className="col-sm-1">{team.draw}</td>
-					<td className="col-sm-1">{team.loss}</td>
-					<td className="col-sm-1">{team.goalsFor - team.goalsAgainst}</td>
-					<td className="col-sm-2">{team.points}</td>
-				</tr>
-			);
-		});
-	}
-	render() {
-		const { teams, id } = this.props;
+		const { teams } = this.props;
 		if (!teams) {
-			return <div>Loading…</div>;
+			return <tr><td>Loading…</td></tr>;
+		}
+		if(teams.records) {
+			return teams.records.map((team) => {
+				return (
+					<tr key={team.team}>
+						<td className="col-sm-5">{team.team}</td>
+						<td className="col-sm-1">{team.played}</td>
+						<td className="col-sm-1">{team.win}</td>
+						<td className="col-sm-1">{team.draw}</td>
+						<td className="col-sm-1">{team.loss}</td>
+						<td className="col-sm-1">{team.goalsFor - team.goalsAgainst}</td>
+						<td className="col-sm-2">{team.points}</td>
+					</tr>
+				);
+			});
 		}
 		if (teams.error) {
 			return (
@@ -36,9 +36,12 @@ class CompetitionShowGroupTable extends Component {
 				</div>
 			);
 		}
+	}
+	render() {
+		const { group } = this.props;
 		return (
 			<div>
-				<h2>Group {id}:</h2>
+				<h2>Group {group}:</h2>
 				<table className="groupTable">
 					<thead>
 						<tr>
@@ -55,6 +58,7 @@ class CompetitionShowGroupTable extends Component {
 						{this.renderList()}
 					</tbody>
 				</table>
+				<br />
       		</div>
 		);
 	}
@@ -63,12 +67,10 @@ class CompetitionShowGroupTable extends Component {
 // transform states to props
 function mapStateToProps(state, ownProps) {
 	// return props inside CompetitionShowGroupTable
-	const competitionIndex = state.competition.competitionCodes.findIndex(code => code == ownProps.competition);
-	const competitionState = state.competition.competitionState[competitionIndex];
 	return {
-		teams: state[competitionState].teams
+		teams: state.competition.teams
 	};
 }
 
 // transform a component to a container, adding new props to CompetitionShowGroupTable
-export default connect(mapStateToProps, { fetchCompetitionGroupTable })(CompetitionShowGroupTable);
+export default connect(mapStateToProps, { fetchGroupTable })(CompetitionShowGroupTable);
